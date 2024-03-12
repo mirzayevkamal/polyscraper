@@ -2,7 +2,7 @@ chrome.runtime?.onMessage.addListener(function (request) {
   if (request.action === "scrape") {
     if (
       window.location.host.includes("www.amazon.com") &&
-      window.location.href.includes("dp")
+      window.location.href.includes("/dp/")
     ) {
       scrapeDataAndPopulate();
     } else {
@@ -70,14 +70,6 @@ function scrapeDataAndPopulate() {
 
 function getProductTitle() {
   return document.getElementById("productTitle")?.innerText || "-";
-}
-
-function getProductPlatform() {
-  return document.getElementById("sellerProfileTriggerId")?.innerText || "-";
-}
-
-function getProductPlatformUrl() {
-  return document.getElementById("sellerProfileTriggerId")?.href || "-";
 }
 
 function getProductRating() {
@@ -157,6 +149,7 @@ function getReviewNodes() {
 
 function getReviews() {
   const reviews = [];
+  //
   const reviewNodes = getReviewNodes();
   for (const reviewNode of reviewNodes) {
     const review = {

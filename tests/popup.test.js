@@ -1,13 +1,8 @@
-const {
-  createAndAppendElement,
-  createResetButton,
-  removeScrapeLimitFromStorage,
-  showScrapeButton,
-} = require("../popup.js");
+const { createAndAppendElement, createResetButton } = require("../popup.js");
 
 test("createAndAppendElement creates and appends element to parent", () => {
   const parent = document.createElement("div");
-  document.body.appendChild(parent); // This is needed for Jest to recognize the element
+  document.body.appendChild(parent); 
 
   const tag = "p";
   const content = "This is a test paragraph";

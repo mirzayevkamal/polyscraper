@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (scrapeCount && scrapeCount >= scrapeLimit) {
         hideScrapeButton();
         createResetButton();
-        alert("Scrape limit reached. Please try again later.");
+        alert("Scrape limit reached. Please reset your limit.");
       } else if (scrapeCount) {
         localStorage.setItem("scrapeCount", parseInt(scrapeCount) + 1);
         checkTimeBeforeScraping(request.data);
